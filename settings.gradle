@@ -1,0 +1,1 @@
+include ':app', ':my_lib_aspectj', ':lib_gintonic'
