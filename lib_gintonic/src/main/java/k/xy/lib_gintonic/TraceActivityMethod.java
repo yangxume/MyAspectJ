@@ -12,6 +12,46 @@ public class TraceActivityMethod {
 
     private static final String TAG = LogTag.TAG_ACTIVITY;
 
+
+    /**
+     * 监听进入图库
+     *
+     * @param joinPoint
+     */
+//    @Before("call(* org.codeaurora.gallery.GalleryActivity.onCreate(..))")
+//    @Before("execution(* com.android.deskclock.DeskClock.on**(..))")
+    @Before("execution(* com.okay.teacherapp.MainActivity.on**(..))")
+    public void beforeOnCreateAlbum(JoinPoint joinPoint) {
+
+        Signature signature = joinPoint.getSignature();
+
+        Object target = joinPoint.getTarget();
+
+        Object aThis = joinPoint.getThis();
+
+        Object[] args = joinPoint.getArgs();
+
+        String kind = joinPoint.getKind();
+
+        SourceLocation sourceLocation = joinPoint.getSourceLocation();
+
+        JoinPoint.StaticPart staticPart = joinPoint.getStaticPart();
+
+        Log.d(TAG, "beforeOnCreateAlbum: signature = " + signature.toString());
+        Log.d(TAG, "beforeOnCreateAlbum: target = " + target.toString());
+        Log.d(TAG, "beforeOnCreateAlbum: aThis = " + aThis.toString());
+
+        for (int i = 0; i < args.length; i++) {
+            Log.d(TAG, "beforeOnCreateAlbum: args = " + i + "--" + args[i]);
+        }
+
+        Log.d(TAG, "beforeOnCreateAlbum: kind = " + kind.toString());
+        Log.d(TAG, "beforeOnCreateAlbum: sourceLocation = " + sourceLocation.toString());
+        Log.d(TAG, "beforeOnCreateAlbum: staticPart = " + staticPart.toString());
+
+    }
+
+
     @Before("execution(* android.app.Activity.on**(..))")
     public void onActivityMethodBefore(JoinPoint joinPoint) throws Throwable {
 
@@ -34,7 +74,7 @@ public class TraceActivityMethod {
         Log.d(TAG, "onActivityMethodBefore: aThis = " + aThis.toString());
 
         for (int i = 0; i < args.length; i++) {
-            Log.d(TAG, "onActivityMethodBefore: args = "+i+"--"+ args[i]);
+            Log.d(TAG, "onActivityMethodBefore: args = " + i + "--" + args[i]);
         }
 
         Log.d(TAG, "onActivityMethodBefore: kind = " + kind.toString());
@@ -46,26 +86,25 @@ public class TraceActivityMethod {
 
     //执行结果：
 
-//    2019-03-28 15:26:02.851 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: signature = void k.xy.myaspectj.MainActivity.onCreate(Bundle)
-//            2019-03-28 15:26:02.852 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: target = k.xy.myaspectj.MainActivity@a61af56
+//2019-03-28 15:26:02.851 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: signature = void k.xy.myaspectj.MainActivity.onCreate(Bundle)
+//2019-03-28 15:26:02.852 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: target = k.xy.myaspectj.MainActivity@a61af56
 //2019-03-28 15:26:02.853 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: aThis = k.xy.myaspectj.MainActivity@a61af56
 //2019-03-28 15:26:02.853 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: args = [Ljava.lang.Object;@1880bd7
 //2019-03-28 15:26:02.854 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: kind = method-execution
 //2019-03-28 15:26:02.854 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: sourceLocation = MainActivity.java:21
-//            2019-03-28 15:26:02.854 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: staticPart = execution(void k.xy.myaspectj.MainActivity.onCreate(Bundle))
-//            2019-03-28 15:26:03.109 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: signature = void k.xy.myaspectj.MainActivity.onStart()
-//            2019-03-28 15:26:03.110 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: target = k.xy.myaspectj.MainActivity@a61af56
+//2019-03-28 15:26:02.854 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: staticPart = execution(void k.xy.myaspectj.MainActivity.onCreate(Bundle))
+//2019-03-28 15:26:03.109 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: signature = void k.xy.myaspectj.MainActivity.onStart()
+//2019-03-28 15:26:03.110 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: target = k.xy.myaspectj.MainActivity@a61af56
 //2019-03-28 15:26:03.110 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: aThis = k.xy.myaspectj.MainActivity@a61af56
 //2019-03-28 15:26:03.110 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: kind = method-execution
 //2019-03-28 15:26:03.110 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: sourceLocation = MainActivity.java:37
-//            2019-03-28 15:26:03.110 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: staticPart = execution(void k.xy.myaspectj.MainActivity.onStart())
-//            2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: signature = void k.xy.myaspectj.MainActivity.onResume()
-//            2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: target = k.xy.myaspectj.MainActivity@a61af56
+//2019-03-28 15:26:03.110 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: staticPart = execution(void k.xy.myaspectj.MainActivity.onStart())
+//2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: signature = void k.xy.myaspectj.MainActivity.onResume()
+//2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: target = k.xy.myaspectj.MainActivity@a61af56
 //2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: aThis = k.xy.myaspectj.MainActivity@a61af56
 //2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: kind = method-execution
 //2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: sourceLocation = MainActivity.java:32
-//            2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: staticPart = execution(void k.xy.myaspectj.MainActivity.onResume())
-
+//2019-03-28 15:26:03.116 11067-11067/k.xy.myaspectj D/TraceAspect: onActivityMethodBefore: staticPart = execution(void k.xy.myaspectj.MainActivity.onResume())
 
 
 }

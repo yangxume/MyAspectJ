@@ -5,15 +5,18 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.*;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity
+        implements View.OnClickListener ,AdapterView.OnItemClickListener {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private LinearLayout ll_main;
     private Button btn01;
     private Button btn02;
+    private ListView listview;
+
+    View view;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -26,6 +29,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btn02 = findViewById(R.id.btn02);
         btn01.setOnClickListener(this);
         btn02.setOnClickListener(this);
+
+        listview = findViewById(R.id.listview);
+        listview.setOnItemClickListener(this);
+
+        listview.setAdapter(
+                new ArrayAdapter<String>(this,
+                        android.R.layout.simple_list_item_1,
+                        new String []{"a","b","c","d","e","f"}));
+
     }
 
     @Override
@@ -70,6 +82,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
         }
+
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+
+
 
     }
 }

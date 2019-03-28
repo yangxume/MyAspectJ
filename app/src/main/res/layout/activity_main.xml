@@ -22,7 +22,7 @@
             app:layout_constraintBottom_toTopOf="@+id/sample_text"
             android:layout_width="match_parent"
             android:background="@android:color/darker_gray"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
 
         <Button
                 android:id="@+id/btn01"
@@ -41,5 +41,11 @@
                 android:textAllCaps="false"/>
 
     </LinearLayout>
+
+    <ListView
+            android:id="@+id/listview"
+            android:layout_width="300dp"
+            android:layout_height="600dp"/>
+
 
 </LinearLayout>
