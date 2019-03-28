@@ -3,14 +3,17 @@ package k.xy.myaspectj;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String TAG = MainActivity.class.getSimpleName();
     private LinearLayout ll_main;
     private Button btn01;
+    private Button btn02;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -20,12 +23,9 @@ public class MainActivity extends AppCompatActivity {
         ll_main.invalidate();
 
         btn01 = findViewById(R.id.btn01);
-        btn01.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        btn02 = findViewById(R.id.btn02);
+        btn01.setOnClickListener(this);
+        btn02.setOnClickListener(this);
     }
 
     @Override
@@ -51,5 +51,25 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void onClick(View v) {
+
+        switch (v.getId()) {
+
+            case R.id.btn01:
+
+                Log.e(TAG, "btn is click");
+
+                break;
+
+            case R.id.btn02:
+
+                Log.e(TAG, "btn is click");
+
+                break;
+        }
+
     }
 }

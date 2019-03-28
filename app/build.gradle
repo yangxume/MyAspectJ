@@ -43,7 +43,7 @@ dependencies {
 
     implementation 'org.aspectj:aspectjrt:1.8.13'
 
-    compile project(':lib_gintonic')
+    implementation project(':lib_gintonic')
 }
 
 
