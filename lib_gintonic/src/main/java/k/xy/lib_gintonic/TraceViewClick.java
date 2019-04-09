@@ -57,28 +57,28 @@ public class TraceViewClick {
         for (int i = 0; i < args.length; i++) {
             Log.d(TAG, "onViewItemClickAop: args = "+i+"--" + args[i]);
 
-            View view = (View) args[i];
+//            View view = (View) args[i];
 
-            if (view instanceof Button
-                    || view instanceof RadioButton
-                    || view instanceof CheckBox
-                    || view instanceof TextView){
-
-                TextView textView = (TextView) args[i];
-
-                /**
-                 * 获取被点击控件文本内容
-                 */
-                CharSequence text = textView.getText();
-                /**
-                 * 获取被点击控件id
-                 */
-                int id = textView.getId();
-
-                Log.d(TAG, "onViewItemClickAop: args["+i+"]-viewId is -" + id);
-                Log.d(TAG, "onViewItemClickAop: args["+i+"]-text is -" + text);
-
-            }
+//            if (view instanceof Button
+//                    || view instanceof RadioButton
+//                    || view instanceof CheckBox
+//                    || view instanceof TextView){
+//
+//                TextView textView = (TextView) args[i];
+//
+//                /**
+//                 * 获取被点击控件文本内容
+//                 */
+//                CharSequence text = textView.getText();
+//                /**
+//                 * 获取被点击控件id
+//                 */
+//                int id = textView.getId();
+//
+//                Log.d(TAG, "onViewItemClickAop: args["+i+"]-viewId is -" + id);
+//                Log.d(TAG, "onViewItemClickAop: args["+i+"]-text is -" + text);
+//
+//            }
         }
 
         Log.d(TAG, "onViewItemClickAop: kind = " + kind.toString());
