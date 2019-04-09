@@ -1,4 +1,4 @@
-package com.xy.dep_lib_gintonic;
+package com.xy.myaspectj_module;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.xy.dep_lib_gintonic.test", appContext.getPackageName());
+        assertEquals("com.xy.myaspectj_module.test", appContext.getPackageName());
     }
 }

@@ -1,1 +1,1 @@
-include ':app', ':my_lib_aspectj', ':lib_gintonic', ':dep_lib_gintonic'
+include ':app', ':myaspectj_lib2', ':myaspectj_lib1', ':myaspectj_module'

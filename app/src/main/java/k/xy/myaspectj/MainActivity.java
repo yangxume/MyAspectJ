@@ -1,5 +1,6 @@
 package k.xy.myaspectj;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -71,6 +72,10 @@ public class MainActivity extends AppCompatActivity
         switch (v.getId()) {
 
             case R.id.btn01:
+
+                Intent intent = new Intent(MainActivity.this, com.xy.myaspectj_module.MainActivity.class);
+                startActivity(intent);
+                finish();
 
                 Log.e(TAG, "btn is click");
 

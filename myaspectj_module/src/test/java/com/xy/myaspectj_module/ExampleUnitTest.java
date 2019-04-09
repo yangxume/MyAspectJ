@@ -1,4 +1,4 @@
-package com.xy.dep_lib_gintonic;
+package com.xy.myaspectj_module;
 
 import org.junit.Test;
 
