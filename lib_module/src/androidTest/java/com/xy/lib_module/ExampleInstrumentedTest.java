@@ -1,4 +1,4 @@
-package com.xy.myaspectj_module;
+package com.xy.lib_module;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

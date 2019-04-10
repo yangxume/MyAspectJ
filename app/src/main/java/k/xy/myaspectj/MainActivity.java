@@ -73,9 +73,9 @@ public class MainActivity extends AppCompatActivity
 
             case R.id.btn01:
 
-                Intent intent = new Intent(MainActivity.this, com.xy.myaspectj_module.MainActivity.class);
+                Intent intent = new Intent(MainActivity.this,
+                        com.xy.lib_module.MainActivity.class);
                 startActivity(intent);
-                finish();
 
                 Log.e(TAG, "btn is click");
 

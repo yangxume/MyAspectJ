@@ -1,9 +1,8 @@
-package com.xy.myaspectj_module;
+package com.xy.lib_module;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.*;
 
