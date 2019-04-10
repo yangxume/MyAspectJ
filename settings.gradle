@@ -1,1 +1,4 @@
-include ':app', ':myaspectj_lib2', ':myaspectj_lib1', ':myaspectj_module'
+include ':app'
+        ,
+        ':lib_autotrack',
+        ':myaspectj_module'
