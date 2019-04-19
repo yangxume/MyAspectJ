@@ -17,7 +17,7 @@
             android:theme="@style/AppTheme">
         <activity
                 android:label="app_main_activity"
-                android:name=".MainActivity">
+                android:name="k.xy.myaspectj.KotlinActivity">
         <!--<activity android:name=".KotlinActivity">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -25,9 +25,9 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-                android:label="module_main_activity"
-                android:name="com.xy.lib_module.MainActivity"/>
+        <!--<activity-->
+                <!--android:label="module_main_activity"-->
+                <!--android:name="com.xy.lib_module.MainActivity"/>-->
     </application>
 
 </manifest>

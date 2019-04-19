@@ -3,13 +3,10 @@ package k.xy.myaspectj
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.ListView
+import android.widget.*
 
-public class KotlinActivity: AppCompatActivity(),View.OnClickListener,
-    AdapterView.OnItemClickListener{
+public class KotlinActivity: AppCompatActivity(),View.OnClickListener{
+//    AdapterView.OnItemClickListener{
 
     lateinit var btn1 : Button
     lateinit var btn2 : Button
@@ -30,11 +27,13 @@ public class KotlinActivity: AppCompatActivity(),View.OnClickListener,
 
     }
 
-    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-
-    }
+//    override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+//
+//    }
 
     override fun onClick(v: View?) {
+
+        Toast.makeText(this,"onclick ",Toast.LENGTH_LONG).show();
 
     }
 
